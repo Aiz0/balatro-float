@@ -1,0 +1,12 @@
+{
+  "id": "AizFloat",
+  "name": "Float",
+  "author": ["Aiz"],
+  "description": "Add floating sprites to playing cards. Like The Soul or legendary jokers.",
+  "prefix": "aizf",
+  "main_file": "main.lua",
+  "priority": 0,
+  "badge_colour": "0ea5e9",
+  "version": "2.0.0",
+  "dependencies": ["Steamodded (>=1.*)", "Lovely"]
+}

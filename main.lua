@@ -1,13 +1,3 @@
---- STEAMODDED HEADER
---- MOD_NAME: Float
---- MOD_ID: AizFloat
---- MOD_AUTHOR: [Aiz]
---- VERSION: 1.0.0
---- MOD_DESCRIPTION: Add floating sprites to playing cards. like the souls on jokers
-
-----------------------------------------------
-------------MOD CODE -------------------------
-
 local current_mod = SMODS.current_mod
 local config = current_mod.config
 
