@@ -2,38 +2,11 @@
 version = "1.0.0"
 dump_lua = true
 priority = 0
-
-[[patches]]
-[patches.pattern]
-target = 'card.lua'
-pattern = "if _center then"
-position = 'before'
-payload = '''
-if _front then
-    Add_floating_sprite_atlas(self)
-end
-'''
-match_indent = true
-
-[[patches]]
-[patches.pattern]
-target = 'card.lua'
-pattern = "elseif self.sprite_facing == 'back' then"
-position = 'before'
-payload = '''
-if self.children.front and self.children.floating_sprite then
-    Draw_floating_sprite_playing_card(self)
-end
- '''
-match_indent = true
-
-# Fixes an issue where scaling on floating sprites was done
-# using the scale_mag of the object it was being drawn on
-# instead of sprites own scale_mag
+# Allows floating sprite to be larger than the card
 [[patches]]
 [patches.pattern]
 target = 'engine/sprite.lua'
 pattern = "love.graphics.scale(1/(other_obj.scale_mag or other_obj.VT.scale))"
 position = 'at'
-payload = "love.graphics.scale(1/(self.scale_mag or other_obj.scale_mag or other_obj.VT.scale))"
+payload = "love.graphics.scale(1/(other_obj.scale_mag or other_obj.VT.scale) * (self.floating_scale or 1))"
 match_indent = true

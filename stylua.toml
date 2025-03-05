@@ -1,4 +1,2 @@
-column_width = 90
 indent_type = "Spaces"
-call_parentheses = "Always"
-collapse_simple_statement = "ConditionalOnly"
+collapse_simple_statement = "Always"
