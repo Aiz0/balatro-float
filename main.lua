@@ -64,7 +64,7 @@ SMODS.DrawStep({
     key = "aizFloat",
     order = 61, -- right after normal floating sprite
     func = function(self)
-        if self.ability.effect == "Stone Card" and config.hide_on_stone then return end
+        if SMODS.has_no_rank(self) then return end
         if not self.children.floating_sprite then return end
 
         local scale_mod = 0.07
@@ -138,7 +138,6 @@ current_mod.config_tab = function()
             minh = 6,
         },
         nodes = {
-            create_toggle_wrapper("hide_on_stone"),
             create_toggle_wrapper("soul_animation"),
             create_toggle_wrapper("shadow"),
         },
