@@ -65,7 +65,7 @@ SMODS.DrawStep({
     order = 61, -- right after normal floating sprite
     func = function(self)
         if SMODS.has_no_rank(self) then return end
-        if not self.children.floating_sprite then return end
+        if not (self.children.front and self.children.floating_sprite) then return end
 
         local scale_mod = 0.07
         local rotate_mod = 0.05
