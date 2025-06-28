@@ -31,10 +31,14 @@ local function Add_floating_sprite_atlas(card)
         G.ASSET_ATLAS[current_mod.prefix .. "_" .. atlas],
         card.config.card.pos
     )
-    card.children.floating_sprite.floating_scale = float_config.scale
     card.children.floating_sprite.role.draw_major = card
     card.children.floating_sprite.states.hover.can = false
     card.children.floating_sprite.states.click.can = false
+    -- saves scale mag difference between center and floating sprite
+    -- this allows floating sprite atlas to be of a different size
+    card.children.floating_sprite.floating_scale = float_config.scale
+        * card.children.center.scale_mag
+        / card.children.floating_sprite.scale_mag
 end
 
 local function draw_centered(card, shadow, ms, mr, mx, my, tilt_shadow)
